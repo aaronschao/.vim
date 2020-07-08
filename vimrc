@@ -1,4 +1,13 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 通用快捷键映射区
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+inoremap <C-l> <Right>
+inoremap <C-h> <Left>
+inoremap <C-k> <Up>
+inoremap <C-j> <Down>
+inoremap <C-b> <PageUp>
+inoremap <C-f> <PageDown>
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 通用设置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader = ","      " 定义<leader>键
@@ -70,13 +79,10 @@ set fileencodings=utf8,ucs-bom,gbk,cp936,gb2312,gb18030
 " 插件列表
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
-"Plug 'chxuan/cpp-mode'
-Plug 'chxuan/vim-buffer'
 Plug 'chxuan/tagbar'
 "Plug 'Valloric/YouCompleteMe'
 Plug 'easymotion/vim-easymotion'
 Plug 'haya14busa/incsearch.vim'
-Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -86,7 +92,6 @@ Plug 'tpope/vim-commentary'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
-Plug 'Shougo/echodoc.vim'
 Plug 'terryma/vim-smooth-scroll'
 "Plug 'SirVer/ultisnips'
 "Plug 'honza/vim-snippets'
@@ -95,24 +100,8 @@ call plug#end()
 " 打开文件自动定位到最后编辑的位置
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g'\"" | endif
 
-" cpp-mode
-"nnoremap <leader>y :CopyCode<cr>
-"nnoremap <leader>p :PasteCode<cr>
-"nnoremap <leader>U :GoToFunImpl<cr>
-"nnoremap <silent> <leader>a :Switch<cr>
-"nnoremap <leader><leader>fp :FormatFunParam<cr>
-"nnoremap <leader><leader>if :FormatIf<cr>
-"nnoremap <leader><leader>t dd :GenTryCatch<cr>
-"xnoremap <leader><leader>t d :GenTryCatch<cr>
-
-" vim-buffer
-nnoremap <silent> <c-p> :PreviousBuffer<cr>
-nnoremap <silent> <c-n> :NextBuffer<cr>
-nnoremap <silent> <leader>d :CloseBuffer<cr>
-nnoremap <silent> <leader>D :BufOnly<cr>
-
 " tagbar
-let g:tagbar_width = 30
+let g:tagbar_width = 40
 nnoremap <silent> <F3> :TagbarToggle<cr>
 
 " YCM
@@ -192,10 +181,6 @@ let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
 
-"echodoc.vim
-let g:echodoc_enable_at_startup = 1
-
 " vim-smooth-scroll
 noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 4)<CR>
 noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 4)<CR>
-
